@@ -1,0 +1,32 @@
+Components are the basic building blocks of an Angular application. They control different parts of a web page called views, such as a list of products or an order checkout form. They are responsible for the presentational logic of an Angular application, and they are organized in a hierarchical tree of components that can interact with each other.
+
+
+When we register a component with an Angular module, we give it a compilation context. The component can find everything that needs to be loaded inside that context. However, we can create components that do not exist in the context of a specific Angular module.
+
+
+A component that is not registered with an Angular module is called a standalone component. Standalone components do not need a compilation context from an Angular module because they import any Angular artifacts they need by themselves. To create a standalone component using the Angular CLI, we pass the standalone option in the generate command that we learned about earlier
+
+
+Standalone components can import Angular modules and vice versa. All we have to do is add the standalone component in the imports array of the module as if it was a module itself
+
+
+Standalone components are recommended for quick prototyping, demo purposes, or when learning Angular for the first time. As you progress and add more features to your application, you may need to use Angular modules to organize your component hierarchy better.
+
+
+To set the attribute of an HTML element, we use the attr. syntax through property binding. For example, to set the aria-label accessibility attribute of an HTML element,
+
+
+Real-world scenarios usually involve bidirectional data flow through components. To get data from the template back to the component class, we use a technique called event binding. Consider the following HTML snippet
+
+
+Component inter-communication
+In a nutshell, Angular components expose a public API that allows them to communicate with other components. This API encompasses input properties, which we use to feed the component with data. It also exposes output properties we can bind event listeners to, thereby getting timely information about changes in the state of the component.
+
+
+The Input artifact is an Angular property decorator that is used when we want to pass data from one component down to another component.
+
+
+The Output artifact is an Angular property decorator that is used when we want to create events that will be triggered from one component up to another. The EventEmitter class is used to emit those events.
+
+
+Change detection is the mechanism that Angular uses internally to detect changes that occur in component properties and reflect these changes to the view. It is triggered on specific events such as when the user clicks on a button, an asynchronous request is completed, or a setTimeout and setInterval method is executed. Angular monkey patches these event types by overwriting their default behavior, using a library called Zone.js.
