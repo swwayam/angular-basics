@@ -30,3 +30,7 @@ The Output artifact is an Angular property decorator that is used when we want t
 
 
 Change detection is the mechanism that Angular uses internally to detect changes that occur in component properties and reflect these changes to the view. It is triggered on specific events such as when the user clicks on a button, an asynchronous request is completed, or a setTimeout and setInterval method is executed. Angular monkey patches these event types by overwriting their default behavior, using a library called Zone.js.
+
+
+
+The OnChanges lifecycle event is triggered once the value is first set and in all subsequent changes that occur through the binding mechanism. Initially, the oldValue is undefined since the property has not been set yet. The newValue is the first value we set in the property – in our case, an empty string that comes from the initial value of the selectedProduct property of the product list component. To eliminate the unnecessary log, we can check whether this is the first change using the isFirstChange method
